@@ -23,6 +23,10 @@ app.post("/api/auth/logout", (req, res) => {
   res.json({ message: "Logout success" });
 });
 
+app.get("/", (req, res) => {
+  res.send("Hello World!!");
+});
+
 app.listen(port, () => {
   console.log(`Server started at http://localhost:${port}`);
 });

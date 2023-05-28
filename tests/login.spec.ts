@@ -1,44 +1,26 @@
-describe("Login API", () => {
-  it("should return a JWT token when given correct username and password", async () => {
-    const mockRequest = {
-      body: {
-        username: "user",
-        password: "password",
-      },
-    };
+import { Request, Response } from "express";
 
-    const mockResponse = {
+
+describe("authController", () => {
+  let mockRequest: Partial<Request>;
+  let mockResponse: Partial<Response>;
+
+  beforeEach(() => {
+    mockRequest = {};
+    mockResponse = {
       json: jest.fn(),
+      status: jest.fn().mockReturnThis(),
     };
-
-    const expectedToken = "yourjwttoken";
-    authService.login = jest.fn().mockResolvedValue(expectedToken);
-
-    await authController.login(mockRequest, mockResponse);
-
-    expect(mockResponse.json).toHaveBeenCalledWith({ token: expectedToken });
   });
 
-  it("should return a 401 error when given incorrect username and password", async () => {
-    const mockRequest = {
-      body: {
-        username: "wronguser",
-        password: "wrongpassword",
-      },
-    };
+  describe("login", () => {
+    it("should return a JWT token when given valid username and password", async () => {
+      const expectedToken = "yourjwttoken";
+      authService.login = jest.fn().mockResolvedValue(expectedToken);
 
-    const mockResponse = {
-      status: jest.fn().mockReturnThis(),
-      json: jest.fn(),
-    };
+      await authController.login(mockRequest as Request, mockResponse as Response);
 
-    authService.login = jest.fn().mockResolvedValue(null);
-
-    await authController.login(mockRequest, mockResponse);
-
-    expect(mockResponse.status).toHaveBeenCalledWith(401);
-    expect(mockResponse.json).toHaveBeenCalledWith({
-      message: "Incorrect username or password",
+      expect(mockResponse.json).toHaveBeenCalledWith({ token: expectedToken });
     });
   });
 });

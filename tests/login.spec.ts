@@ -1,4 +1,6 @@
 import { Request, Response } from "express";
+import authService from "../src/services/authService";
+import { authController } from "../src/controllers/authController";
 
 
 describe("authController", () => {

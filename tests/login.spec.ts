@@ -2,13 +2,17 @@ import { Request, Response } from "express";
 import authService from "../src/services/authService";
 import { authController } from "../src/controllers/authController";
 
-
 describe("authController", () => {
   let mockRequest: Partial<Request>;
   let mockResponse: Partial<Response>;
 
   beforeEach(() => {
-    mockRequest = {};
+    mockRequest = {
+      body: {
+        username: "mark",
+        password: "p@ssw0rd",
+      },
+    };
     mockResponse = {
       json: jest.fn(),
       status: jest.fn().mockReturnThis(),
@@ -20,7 +24,10 @@ describe("authController", () => {
       const expectedToken = "yourjwttoken";
       authService.login = jest.fn().mockResolvedValue(expectedToken);
 
-      await authController.login(mockRequest as Request, mockResponse as Response);
+      await authController.login(
+        mockRequest as Request,
+        mockResponse as Response
+      );
 
       expect(mockResponse.json).toHaveBeenCalledWith({ token: expectedToken });
     });

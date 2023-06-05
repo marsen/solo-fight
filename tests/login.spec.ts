@@ -31,5 +31,20 @@ describe("authController", () => {
 
       expect(mockResponse.json).toHaveBeenCalledWith({ token: expectedToken });
     });
+
+    it("should return 401 Unauthorized error when login fails", async () => {
+      const error = new Error("Unauthorized");
+      authService.login = jest.fn().mockRejectedValue(error);
+
+      await authController.login(
+        mockRequest as Request,
+        mockResponse as Response
+      );
+
+      expect(mockResponse.status).toHaveBeenCalledWith(401);
+      expect(mockResponse.json).toHaveBeenCalledWith({
+        message: "Unauthorized",
+      });
+    });
   });
 });

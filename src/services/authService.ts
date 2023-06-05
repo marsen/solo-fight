@@ -10,7 +10,7 @@ class AuthService {
 
     // 如果使用者存在且密碼正確，回傳 JWT token
     if (user && user.password === password) {
-      const token = "yourjwttoken";
+      const token = "yourjwttoken!";
       return token;
     } else {
       // 否則回傳 null

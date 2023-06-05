@@ -14,7 +14,7 @@ describe("authController", () => {
       },
     };
     mockResponse = {
-      json: jest.fn(),
+      json: jest.fn().mockResolvedValue("yourjwttoken"),
       status: jest.fn().mockReturnThis(),
     };
   });

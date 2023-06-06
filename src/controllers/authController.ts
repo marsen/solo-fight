@@ -8,7 +8,9 @@ export const authController = {
       const token = await authService.login(username, password);
       res.json({ token });
     } catch (error) {
-      res.status(401).json({ message: error.message });
+      if (error.message === "Unauthorized")
+        res.status(401).json({ message: error.message });
+      else res.status(500).json({ message: "Something went wrong" });
     }
   },
 };

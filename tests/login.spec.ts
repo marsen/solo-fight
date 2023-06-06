@@ -46,5 +46,20 @@ describe("authController", () => {
         message: "Unauthorized",
       });
     });
+
+    it("should return 500 Internal Server Error when server encounters an error", async () => {
+      const error = new Error("Something went wrong");
+      authService.login = jest.fn().mockRejectedValue(error);
+
+      await authController.login(
+        mockRequest as Request,
+        mockResponse as Response
+      );
+
+      expect(mockResponse.status).toHaveBeenCalledWith(500);
+      expect(mockResponse.json).toHaveBeenCalledWith({
+        message: "Something went wrong",
+      });
+    });
   });
 });

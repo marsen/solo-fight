@@ -48,7 +48,7 @@ describe("authController", () => {
     });
 
     it("should return 500 Internal Server Error when server encounters an error", async () => {
-      const error = new Error("Something went wrong");
+      const error = new Error("Some Errors we don't know");
       authService.login = jest.fn().mockRejectedValue(error);
 
       await authController.login(

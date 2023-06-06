@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import Service from "../src/services/authService";
-import { authController } from "../src/controllers/authController";
+import AuthController from "../src/controllers/authController";
 
 describe("authController", () => {
   let authService = new Service();
@@ -24,7 +24,7 @@ describe("authController", () => {
     it("should return a JWT token when given valid username and password", async () => {
       const expectedToken = "yourjwttoken";
       authService.login = jest.fn().mockResolvedValue(expectedToken);
-
+      let authController = new AuthController(authService);
       await authController.login(
         mockRequest as Request,
         mockResponse as Response
@@ -36,7 +36,7 @@ describe("authController", () => {
     it("should return 401 Unauthorized error when login fails", async () => {
       const error = new Error("Unauthorized");
       authService.login = jest.fn().mockRejectedValue(error);
-
+      let authController = new AuthController(authService);
       await authController.login(
         mockRequest as Request,
         mockResponse as Response
@@ -51,7 +51,7 @@ describe("authController", () => {
     it("should return 500 Internal Server Error when server encounters an error", async () => {
       const error = new Error("Some Errors we don't know");
       authService.login = jest.fn().mockRejectedValue(error);
-
+      let authController = new AuthController(authService);
       await authController.login(
         mockRequest as Request,
         mockResponse as Response

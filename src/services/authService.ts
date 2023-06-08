@@ -2,9 +2,11 @@ type User = {
   username: string;
   password: string;
 };
+
 export type TAuthService = {
   login(username: string, password: string): Promise<string | null>;
 };
+
 class AuthService {
   async login(username: string, password: string): Promise<string | null> {
     // 模擬從資料庫中獲取使用者資料

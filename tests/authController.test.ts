@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import Service from "../src/services/authService";
+import AuthService from "../src/services/authService";
 import AuthController from "../src/controllers/authController";
 
 describe("authController", () => {
-  let authService = new Service();
+  let authService = new AuthService();
   let mockRequest: Partial<Request>;
   let mockResponse: Partial<Response>;
 

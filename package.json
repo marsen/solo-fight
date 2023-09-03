@@ -13,9 +13,9 @@
     "typescript": "^5.0.4"
   },
   "scripts": {
-    "dev:build": "tsc -w",
-    "dev:run": "nodemon dist/app.js",
-    "dev": "concurrently yarn:dev:*"
+    "start:build": "tsc -w",
+    "start:run": "nodemon dist/app.js",
+    "dev": "concurrently yarn:start:*"
   },
   "dependencies": {
     "@types/node": "^20.5.9"

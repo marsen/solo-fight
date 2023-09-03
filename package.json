@@ -15,5 +15,8 @@
     "build": "tsc",
     "start": "node dist/app.js",
     "dev": "nodemon --watch 'src/**/*' --exec 'ts-node' src/app.ts"
+  },
+  "dependencies": {
+    "@types/node": "^20.5.9"
   }
 }

@@ -41,3 +41,4 @@ Log 在實務上非常實用，可以幫助你來除錯、監控、記錄和協�
 
 - [Dependency Injection in Node.js + TypeScript](https://masoudx.medium.com/dependency-injection-in-typescript-7bb8fdd2863c)
 - [GCP LogEntry](https://cloud.google.com/logging/docs/reference/v2/rest/v2/LogEntry)
+- [Azure Log](https://learn.microsoft.com/en-us/azure/azure-functions/configure-monitoring?tabs=v2)

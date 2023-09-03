@@ -1,13 +1,15 @@
 import express, { Router } from 'express';
 
 const router: Router = express.Router();
+
+router.use("/",(req,res)=>{
+  const result: HealthRes = { status: "Error", version: "beta.230903.3" };
+  res.status(200).json(result)
+})
+
 type HealthRes = { 
   status: "OK"|"Error";
   version:string
 }
-router.use("/",(req,res)=>{
-  const result: HealthRes = { status: "OK", version: "beta" };
-  res.status(200).json(result)
-})
 
 export default router;

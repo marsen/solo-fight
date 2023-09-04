@@ -36,17 +36,17 @@
 ## 工程目標
 
 - Coding Standard
-    - https://github.com/labs42io/clean-code-typescript#introduction
+  - <https://github.com/labs42io/clean-code-typescript#introduction>
 - TypeScript Lint
 - TDD
-    - Unit Test
-    - DI
-    - Help Tools
-    - Mock Library
-    - Test Framework
+  - Unit Test
+  - DI
+  - Help Tools
+  - Mock Library
+  - Test Framework
 
 ## 教育訓練
 
-- https://www.totaltypescript.com/tutorials
-- https://www.typescriptlang.org/docs/handbook/intro.html
-- https://pjchender.dev/typescript/ts-basic-types/
+- <https://www.totaltypescript.com/tutorials>
+- <https://www.typescriptlang.org/docs/handbook/intro.html>
+- <https://pjchender.dev/typescript/ts-basic-types/>

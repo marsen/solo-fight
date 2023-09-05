@@ -2,9 +2,10 @@ import express, { Router } from 'express';
 
 const router: Router = express.Router();
 
-router.use("/",(req,res)=>{
+router.use("/",(req,res,next)=>{
   const result: HealthRes = { status: "Error", version: "beta.230903.3" };
-  res.status(200).json(result)
+  res.status(200).json(result);
+  next();
 })
 
 type HealthRes = { 

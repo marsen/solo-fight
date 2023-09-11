@@ -18,6 +18,8 @@
     "dev": "concurrently yarn:start:*"
   },
   "dependencies": {
-    "@types/node": "^20.5.9"
+    "@google-cloud/logging-winston": "^6.0.0",
+    "@types/node": "^20.5.9",
+    "winston": "^3.10.0"
   }
 }

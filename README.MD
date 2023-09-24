@@ -17,8 +17,8 @@
 - WebApi
 - 錯誤處理/最後防線
 - Log
-- Notify
 - Call 3rd API
+- Notify
 - Env/Config
 - middleware
 - Health Check

@@ -1,7 +1,7 @@
 import { createLogger, format, transports } from 'winston';
 import { LoggingWinston } from '@google-cloud/logging-winston';
 
-const projectId = ''; // 替换为您的GCP项目ID
+const projectId = process.env.GCP_ID; // 替换为您的GCP项目ID
 
 const logger = createLogger({
   level: 'info', // 日志级别

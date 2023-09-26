@@ -1,0 +1,7 @@
+class LoggerService {
+  public log(message?: string, ...metadata: any) {
+    console.log(message, metadata);
+  }
+}
+
+export default LoggerService

@@ -1,14 +1,12 @@
 import express from "express";
 import router from "./routers/index";
-
 import * as dotenv from 'dotenv';
-
 import ConfigService from "services/configService";
 import LoggerService from "services/loggerService";
-import GCPLoggerService from "services/gcp.loggerService";
+import Logger2Service from "services/logger2Service";
 
-const gcplog = new GCPLoggerService();
 const logging = new LoggerService();
+const logging2 = new Logger2Service();
 const cfg = new ConfigService();
 if (cfg.Get('NODE_ENV') !== 'production') {
   dotenv.config();
@@ -23,7 +21,7 @@ app.use((req, res, next) => {// 添加自定义 metadata 到日志
     customKey: 'customValue',
   };
   
-  gcplog.log('Req start at: ', customMetadata);
+  logging2.log('Req start at: ', customMetadata);
   logging.log('Request received at:', new Date());
   logging.log('Request method:', req.method);
   logging.log('Request URL:', req.url);
@@ -34,7 +32,7 @@ app.use(router)
 
 // Middleware 函數，用於在最後面加入日誌
 app.use((req, res, next) => {
-  gcplog.log('Req end at: %s', new Date());
+  logging2.log('Req end at: %s', new Date());
   logging.log('Response sent at:', new Date());
   logging.log('Response status:', res.statusCode);
   logging.log('------------------------');

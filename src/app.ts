@@ -3,12 +3,12 @@ import router from "./routers/index";
 import logger from "./gcp.logger";
 import * as dotenv from 'dotenv';
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env['NODE_ENV'] !== 'production') {
   dotenv.config();
 }
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env['PORT'];
 
 // Middleware 函數，用於在最後面加入日誌
 app.use((req, res, next) => {// 添加自定义 metadata 到日志

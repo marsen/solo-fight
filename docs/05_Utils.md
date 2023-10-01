@@ -4,4 +4,8 @@
 例如:
 
 - configuration
-- logger 
+- logger
+  - console
+  - gcp
+
+(fin)

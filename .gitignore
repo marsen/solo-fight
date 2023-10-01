@@ -9,3 +9,5 @@ node_modules/
 
 # Build Result
 dist
+cspkey.json
+gcp.sample.key.json

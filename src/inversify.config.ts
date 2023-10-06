@@ -5,7 +5,7 @@ import gcpLoggerService from "./utils/gcp.logger";
 import consoleLoggerService  from "./utils/console.logger";
 
 
-let container = new Container();
+const container = new Container();
 container.bind<Configuration>(TYPES.Configuration).to(EnvConfigService);
 container.bind<Logger>(TYPES.Logger).to(gcpLoggerService);
 //container.bind<Logger>(TYPES.Logger).to(consoleLoggerService);

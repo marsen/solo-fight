@@ -31,7 +31,7 @@ this.logger = createLogger({
 });
   }
 
-  public log(level:string,message:string,meta:any) {
+  public log(level:string,message:string,meta:object[]) {
     this.logger.log(level,message,meta)
   }
 }

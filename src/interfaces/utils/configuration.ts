@@ -1,3 +1,3 @@
-interface Configuration{
+export interface Configuration{
   get(key:string) : string 
 }

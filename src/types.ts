@@ -1,4 +1,4 @@
-let TYPES = {
+const TYPES = {
   Logger: Symbol("Logger"),
   Configuration: Symbol("Configuration"),
 };

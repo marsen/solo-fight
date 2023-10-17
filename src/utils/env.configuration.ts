@@ -1,6 +1,7 @@
 import "reflect-metadata";
 import * as dotenv from 'dotenv';
 import { injectable } from 'inversify';
+import { Configuration } from "interfaces/utils/configuration";
 
 
 @injectable()

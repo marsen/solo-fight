@@ -1,3 +1,4 @@
+import { Logger } from "interfaces/utils/logger";
 import { injectable } from "inversify";
 
 @injectable()

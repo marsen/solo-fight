@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
     "inversify"
-  ]
+  ],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
 }

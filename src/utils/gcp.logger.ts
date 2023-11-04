@@ -3,6 +3,7 @@ import winston, { createLogger, format, transports } from 'winston';
 import { LoggingWinston } from '@google-cloud/logging-winston';
 import * as dotenv from 'dotenv';
 import { injectable } from 'inversify';
+import { Logger } from "interfaces/utils/logger";
 
 
 @injectable()

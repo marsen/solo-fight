@@ -1,9 +1,9 @@
 import express from "express";
+import { Logger } from "interfaces/utils/logger";
+import { Configuration } from "interfaces/utils/configuration";
 import router from "./routers/index";
 import container from "./inversify.config";
 import TYPES from "./types";
-import { Logger } from "interfaces/utils/logger";
-import { Configuration } from "interfaces/utils/configuration";
 
 const cfg = container.get<Configuration>(TYPES.Configuration);
 const logger = container.get<Logger>(TYPES.Logger);

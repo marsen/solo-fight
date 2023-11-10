@@ -11,7 +11,7 @@ class EnvConfigService implements Configuration {
     }
   }
 
-  public get (key: string): string {
+  public get (key: string): string | undefined {
     return process.env[key]
   }
 }

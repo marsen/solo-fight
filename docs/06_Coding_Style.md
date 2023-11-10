@@ -10,7 +10,7 @@
 yarn add --dev @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint typescript
 ```
 
-建立一個 .eslintrc.js 檔案在您的專案根目錄下，並加入以下內容：
+建立一個 `.eslintrc.js` 檔案在您的專案根目錄下，並加入以下內容：
 
 ```javascript
 module.exports = {
@@ -24,7 +24,7 @@ module.exports = {
 };
 ```
 
-在 package.json 檔案中的 scripts 部分，加入一個用來執行 ESLint 的指令：
+在 `package.json` 檔案中的 scripts 部分，加入一個用來執行 ESLint 的指令：
 
 ```json
 "scripts": {
@@ -34,7 +34,44 @@ module.exports = {
 
 執行檢查 `yarn lint`
 
-### 安裝 Microsoft 的 ESLint 規則
+### 安裝 Standard with TypeScript 規則
+
+要配置 `eslint-config-standard-with-typescript`，你需要先安裝相關的套件。  
+
+以下是安裝指令：
+
+```shell
+yarn add --dev eslint-config-standard-with-typescript
+```
+
+然後，你可以在你的 `.eslintrc.js` 檔案中使用 `standard-with-typescript`。
+以下是一個基本的 `.eslintrc.js` 設定範例：
+
+```js
+module.exports = {
+  parser: '@typescript-eslint/parser',
+  extends: [
+    'plugin:@typescript-eslint/recommended',
+  ],
+  rules: {
+    // 在此添加自定義規則
+  },
+  overrides: [
+    {
+      files: [ '*.ts'],
+      parserOptions: {
+        project: './tsconfig.json'
+      },
+      extends: 'standard-with-typescript'
+    }
+  ],
+};
+```
+
+請注意，`standard-with-typescript` 配置需要一個 `parserOptions.project` 屬性來指定 TypeScript 配置檔案  
+通常是 `tsconfig.json` 的路徑。
+
+### [已過時]安裝 Microsoft 的 ESLint 規則
 
  `@microsoft/eslint-config-fast-dna` 是 Microsoft 提供的一組 ESLint 規則，  
  主要用於檢查 JavaScript 和 TypeScript 程式碼的風格和語法。  

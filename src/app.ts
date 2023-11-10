@@ -15,7 +15,7 @@ app.use((req, res, next) => { // 添加自定义 metadata 到日志
     customKey: 'customValue'
   }
 
-  logger.log('info', `Req start at: ${new Date()}}`, customMetadata)
+  logger.log('info', `Req start at: ${new Date().toString()}}`, customMetadata)
   next() // 繼續執行下一個 middleware 或路由處理器
 })
 app.use(express.json())
@@ -23,7 +23,7 @@ app.use(router)
 
 // Middleware 函數，用於在最後面加入日誌
 app.use((req, res, next) => {
-  logger.log('info', `Req end at: ${new Date()}}`, {
+  logger.log('info', `Req end at: ${new Date().toString()}}`, {
     customKey: 'customValue'
   })
   next() // 繼續執行下一個 middleware 或路由處理器

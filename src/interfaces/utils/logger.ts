@@ -1,3 +1,3 @@
 export interface Logger {
-  log: (level: string, message: string, ...meta: object[]) => any
+  log: (level: string, message: string, ...meta: object[]) => void
 }

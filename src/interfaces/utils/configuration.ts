@@ -1,3 +1,3 @@
-export interface Configuration{
-  get(key:string) : string 
+export interface Configuration {
+  get: (key: string) => string | undefined
 }

@@ -1,6 +1,6 @@
 const TYPES = {
-  Logger: Symbol("Logger"),
-  Configuration: Symbol("Configuration"),
-};
+  Logger: Symbol('Logger'),
+  Configuration: Symbol('Configuration')
+}
 
-export default TYPES;
+export default TYPES

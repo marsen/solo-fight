@@ -3,7 +3,7 @@ import { injectable } from 'inversify'
 
 @injectable()
 class consoleLoggerService implements Logger {
-  log (level: string, message: string, ...meta: object[]) {
+  log (level: string, message: string, ...meta: object[]): void {
     console.log(`${level}:${message}`)
     console.log(`meta:${meta.toString()}`)
   }

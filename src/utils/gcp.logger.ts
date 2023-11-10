@@ -32,7 +32,7 @@ class gcpLoggerService implements Logger {
     })
   }
 
-  public log (level: string, message: string, meta: object[]) {
+  public log (level: string, message: string, meta: object[]): void {
     this.logger.log(level, message, meta)
   }
 }

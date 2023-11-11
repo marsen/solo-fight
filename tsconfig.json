@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "lib": ["es6", "dom"],
-    "types": ["reflect-metadata"],
+    "types": ["jest","reflect-metadata"],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "module": "commonjs",
@@ -20,7 +20,8 @@
     }
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "tests/*"
   ],
   "exclude": [
     "node_modules"

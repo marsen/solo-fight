@@ -24,9 +24,10 @@
     "typescript": "*"
   },
   "scripts": {
-    "build": "tsc -w",
-    "serve": "nodemon dist/src/app.js",
-    "dev": "concurrently yarn:build yarn:serve",
+    "build": "tsc -p tsconfig.build.json",
+    "watch": "tsc -w -p tsconfig.build.json",
+    "serve": "nodemon dist/app.js",
+    "dev": "concurrently yarn:watch yarn:serve",
     "test": "jest",
     "lint": "eslint ."
   },

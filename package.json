@@ -25,7 +25,7 @@
   },
   "scripts": {
     "start:build": "tsc -w",
-    "start:run": "nodemon dist/app.js",
+    "start:run": "nodemon dist/src/app.js",
     "dev": "concurrently yarn:start:*",
     "test": "jest",
     "lint": "eslint ."

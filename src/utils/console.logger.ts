@@ -1,4 +1,4 @@
-import { type Logger } from 'interfaces/utils/logger'
+import { type Logger } from '../interfaces/utils/logger'
 import { injectable } from 'inversify'
 
 @injectable()

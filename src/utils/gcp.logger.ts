@@ -4,7 +4,7 @@ import { createLogger, format, transports } from 'winston'
 import { LoggingWinston } from '@google-cloud/logging-winston'
 import * as dotenv from 'dotenv'
 import { injectable } from 'inversify'
-import { type Logger } from 'interfaces/utils/logger'
+import { type Logger } from '../interfaces/utils/logger'
 
 @injectable()
 class gcpLoggerService implements Logger {

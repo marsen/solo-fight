@@ -1,6 +1,6 @@
 import { Container } from 'inversify'
-import { type Configuration } from 'interfaces/utils/configuration'
-import { type Logger } from 'interfaces/utils/logger'
+import { type Configuration } from './interfaces/utils/configuration'
+import { type Logger } from './interfaces/utils/logger'
 import TYPES from './types'
 import EnvConfigService from './utils/env.configuration'
 import gcpLoggerService from './utils/gcp.logger'

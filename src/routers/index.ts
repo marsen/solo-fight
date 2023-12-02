@@ -34,7 +34,6 @@ router.use((req, res, next) => {
   next() // 繼續執行下一個 middleware 或路由處理器
 })
 
-
 interface HealthRes {
   status: 'OK' | 'Error'
   version: string

@@ -24,6 +24,6 @@ describe('Health Check', () => {
     target.healthCheck(req, res)
     // Assert
     expect(res.status).toHaveBeenCalledWith(200)
-    expect(res.json).toHaveBeenCalledWith({ status: 'OK', timestamp: mockDate.toISOString() })
+    expect(res.json).toHaveBeenCalledWith({ status: 'OK', version: '1.0.0.test', timestamp: mockDate.toISOString() })
   })
 })

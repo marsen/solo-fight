@@ -8,7 +8,6 @@ describe('Health Check', () => {
   let req: MockRequest<Request>
   let res: MockResponse<Response>
   beforeEach(() => {
-    target = new BaseController()
     req = httpMocks.createRequest()
     res = httpMocks.createResponse()
   })
@@ -17,6 +16,10 @@ describe('Health Check', () => {
     const mockDate = new Date('2023-11-11T08:05:47Z')
     jest.spyOn(global, 'Date')
       .mockImplementation(() => mockDate)
+    const mockFileService = {
+      readJson: jest.fn().mockReturnValue({ version: '1.0.0.test' })
+    }
+    target = new BaseController(mockFileService)
     // 將 response.status 和 response.json 轉換為 Jest mock 函數
     res.status = jest.fn().mockReturnThis()
     res.json = jest.fn()

@@ -1,12 +1,15 @@
 import express, { type Router } from 'express'
+
 import { BaseController } from '../controllers/baseController'
 import container from '../inversify.config'
 import { type Logger } from '../interfaces/utils/logger'
 import TYPES from '../types'
+import { type FileService } from '../interfaces/utils/fileService'
 
 const router: Router = express.Router()
 const logger = container.get<Logger>(TYPES.Logger)
-const baseController = new BaseController()
+const fileService = container.get<FileService>(TYPES.FileService)
+const baseController = new BaseController(fileService)
 // Middleware 函數，用於在最後面加入日誌
 router.use((req, res, next) => { // 添加自定义 metadata 到日志
   const customMetadata = {

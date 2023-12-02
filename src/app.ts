@@ -1,5 +1,5 @@
+import 'reflect-metadata'
 import express from 'express'
-
 import { type Configuration } from './interfaces/utils/configuration'
 import router from './routers/index'
 import container from './inversify.config'

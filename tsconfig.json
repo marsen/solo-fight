@@ -12,6 +12,7 @@
     "strictNullChecks": true,
     "outDir": "dist",
     "baseUrl": "./src",
+    "strict": true,
     "paths": {
       "*": [
         "node_modules/*",

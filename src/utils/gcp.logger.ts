@@ -6,6 +6,9 @@ import * as dotenv from 'dotenv'
 import { injectable } from 'inversify'
 import { type Logger } from '../interfaces/utils/logger'
 
+/**
+ * @deprecated `gcpLoggerService` is deprecated. Please use `loggerWinston` instead.
+ */
 @injectable()
 class gcpLoggerService implements Logger {
   private readonly logger: winston.Logger
@@ -32,7 +35,7 @@ class gcpLoggerService implements Logger {
     })
   }
 
-  public log (level: string, message: string, meta: object[]): void {
+  public log (level: string, message: string, ...meta: object[]): void {
     this.logger.log(level, message, meta)
   }
 }

@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import { BaseController } from '../src/controllers/baseController'
 import httpMocks from 'node-mocks-http'
 import type { MockResponse, MockRequest } from 'node-mocks-http'

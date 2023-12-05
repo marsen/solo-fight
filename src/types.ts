@@ -1,7 +1,8 @@
 const TYPES = {
   Logger: Symbol('Logger'),
   Configuration: Symbol('Configuration'),
-  FileService: Symbol('FileService')
+  FileService: Symbol('FileService'),
+  ApiService: Symbol('ApiService')
 }
 
 export default TYPES

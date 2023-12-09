@@ -1,10 +1,23 @@
 module.exports = {
-  parser: '@typescript-eslint/parser',
   extends: [
     'plugin:@typescript-eslint/recommended',
   ],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
+  root: true,
+  parserOptions: {
+    project: './tsconfig.json',
+    tsconfigRootDir: __dirname,
+  },
   rules: {
-    // 在此添加自定義規則
+    "@typescript-eslint/naming-convention": [
+      "error",
+      { "selector": "variable", "format": ["camelCase"] },
+      { "selector": "function", "format": ["camelCase"] },
+      { "selector": "typeLike", "format": ["PascalCase"] },
+      { "selector": "memberLike", "format": ["camelCase"] },
+      { "selector": "enumMember", "format": ["PascalCase"] }
+    ]
   },
   overrides: [
     {
@@ -12,7 +25,10 @@ module.exports = {
       parserOptions: {
         project: './tsconfig.json'
       },
-      extends: 'standard-with-typescript'
+      extends: ['standard-with-typescript'],
+      rules: {
+        // Other rules
+      }
     }
   ],
 };

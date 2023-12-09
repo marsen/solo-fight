@@ -71,6 +71,76 @@ module.exports = {
 請注意，`standard-with-typescript` 配置需要一個 `parserOptions.project` 屬性來指定 TypeScript 配置檔案  
 通常是 `tsconfig.json` 的路徑。
 
+### 加上 Naming Rules
+
+#### AWS Best Practice 定義標準命名協定
+
+強制命名約定可以保持程式碼庫的一致性，並減少考慮如何命名變數時的開銷。  
+我們建議如下：
+
+- 使用駝峰式命名(camelCase)變數和函數名稱。
+- 類別名稱和介面名稱使用 PascalCase
+- 對介面成員使用駝峰命名(camelCase)。
+- 使用 PascalCase 作為型別名稱和枚舉名稱。
+- 使用駝峰式命名檔案（例如 ebsVolumes.tsx 或 storage.tsb）
+
+#### (原文)
+
+Enforcing a naming convention keeps the code base consistent and reduces overhead when  
+thinking about how to name a variable. We recommend the following:
+
+- Use camelCase for variable and function names.
+- Use PascalCase for class names and interface names.
+- Use camelCase for interface members.
+- Use PascalCase for type names and enum names.
+- Name files with camelCase (for example, ebsVolumes.tsx or storage.tsb)
+
+#### 設定說明
+
+`eslintrc.js` sample
+
+```js
+  extends: [
+    'plugin:@typescript-eslint/recommended',
+  ],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
+  root: true,
+  parserOptions: {
+    project: './tsconfig.json',
+    tsconfigRootDir: __dirname,
+  },
+  rules: {
+    "@typescript-eslint/naming-convention": [
+      "error",
+      { "selector": "variable", "format": ["camelCase"] },
+      { "selector": "function", "format": ["camelCase"] },
+      { "selector": "typeLike", "format": ["PascalCase"] },
+      { "selector": "memberLike", "format": ["camelCase"] },
+      { "selector": "enumMember", "format": ["PascalCase"] }
+    ]
+  },
+```
+
+在 `.eslintrc.js` 檔案中，`root` 和 `parserOptions` 的設定有以下的含義：
+
+- `root: true`：這個設定告訴 ESLint 這是您專案的根設定檔案。  
+  當 ESLint 在尋找設定檔案時，會從當前檔案的目錄開始，然後向上查找所有的父目錄，  
+  直到找到一個設定檔案中有 `root: true` 的設定，或者到達檔案系統的根目錄。  
+  一旦找到了 `root: true` 的設定，ESLint 就會停止查找，並且只使用找到的設定檔案。  
+
+- `parserOptions: { project: './tsconfig.json', tsconfigRootDir: __dirname }`：  
+  這個設定告訴 ESLint 的 TypeScript 插件如何處理 TypeScript 的類型資訊。  
+  `project` 選項指定了 TypeScript 的設定檔案（tsconfig.json）的路徑，  
+  這個設定檔案包含了 TypeScript 編譯器的設定，以及您專案中哪些檔案應該被包含在內。  
+  `tsconfigRootDir` 選項指定了 tsconfig.json 檔案的路徑應該相對於哪個目錄，  
+  `__dirname` 是一個 Node.js 的全域變數，代表當前檔案的目錄。  
+- 不想被 eslint 規則所限制的檔案或資料夾請加入 `.eslintignore`
+
+#### 參考
+
+- <https://docs.aws.amazon.com/prescriptive-guidance/latest/best-practices-cdk-typescript-iac/typescript-best-practices.html>
+
 ### [已過時]安裝 Microsoft 的 ESLint 規則
 
  `@microsoft/eslint-config-fast-dna` 是 Microsoft 提供的一組 ESLint 規則，  

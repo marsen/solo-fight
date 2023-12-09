@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "lib": ["es6", "dom"],
-    "types": ["reflect-metadata"],
+    "types": ["jest","reflect-metadata"],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "module": "commonjs",
@@ -10,8 +10,10 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "strictNullChecks": true,
-    "outDir": "dist",
+    "outDir": "./dist",
+    "rootDir": "./src",
     "baseUrl": ".",
+    "strict": true,
     "paths": {
       "*": [
         "node_modules/*",
@@ -20,7 +22,8 @@
     }
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "tests/*"
   ],
   "exclude": [
     "node_modules"

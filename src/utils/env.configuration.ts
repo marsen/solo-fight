@@ -1,7 +1,7 @@
 import 'reflect-metadata'
 import * as dotenv from 'dotenv'
 import { injectable } from 'inversify'
-import { type Configuration } from 'interfaces/utils/configuration'
+import { type Configuration } from '../interfaces/utils/configuration'
 
 @injectable()
 class EnvConfigService implements Configuration {

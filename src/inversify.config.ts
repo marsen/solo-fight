@@ -1,14 +1,15 @@
 import { Container } from 'inversify'
-import { type Configuration } from 'interfaces/utils/configuration'
-import { type Logger } from 'interfaces/utils/logger'
+import { type Configuration } from './interfaces/utils/configuration'
+import { type Logger } from './interfaces/utils/logger'
 import TYPES from './types'
 import EnvConfigService from './utils/env.configuration'
-import gcpLoggerService from './utils/gcp.logger'
-// import consoleLoggerService  from "./utils/console.logger";// you can inject other service
+import diskFileService from './services/fsFileService'
+import loggerWinston from './utils/logger.winston'
+import { type FileService } from './interfaces/utils/fileService'
 
 const container = new Container()
 container.bind<Configuration>(TYPES.Configuration).to(EnvConfigService)
-container.bind<Logger>(TYPES.Logger).to(gcpLoggerService)
-// container.bind<Logger>(TYPES.Logger).to(consoleLoggerService);
+container.bind<Logger>(TYPES.Logger).to(loggerWinston)
+container.bind<FileService>(TYPES.FileService).to(diskFileService)
 
 export default container
